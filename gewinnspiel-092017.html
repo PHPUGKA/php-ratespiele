@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PHPUGKA Sep. 2017 - Gewinnspiel</title>
+    <link rel="stylesheet" href="bower_components/reveal-js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal-js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <img src="images/phpugka.png" width="500" style="border: 0; box-shadow: none">
+            <h2>Gewinnspiel</h2>
+        </section>
+
+        <section>
+            <h3>PHP 7</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    $obj = new class {
+        private function bar()
+        {
+            throw new Exception('method was called');
+        }
+    };
+
+    var_dump(
+        method_exists($obj, 'bar')
+    );
+            </code></pre>
+            <div class="fragment fade-in">true</div>
+        </section>
+
+        <section>
+            <h3>PHP</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    echo print('23');
+            </code></pre>
+            <div class="fragment fade-in">231</div>
+        </section>
+
+        <section>
+            <h3>PHP < 7.2</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    echo count(null) . count(0) . count(new stdClass);
+            </code></pre>
+            <div class="fragment fade-in">011</div>
+        </section>
+
+        <section>
+            <h3>PHP 7</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    $f = (function() {
+        foreach ([1,2,3] as $i) {
+            echo $i + yield;
+        }
+    })();
+
+    foreach ([2, 1, 2] as $i) {
+        $f->send($i);
+    }
+            </code></pre>
+            <div class="fragment fade-in">335</div>
+        </section>
+
+        <section>
+            <h3>PHP 5.6</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    var_dump(
+        $i = 2 ?: null ? 3 : 1
+    );
+            </code></pre>
+            <div class="fragment fade-in">3</div>
+        </section>
+
+        <section>
+            <h3>PHP 7</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    echo ['a', 'b', 'c', 'd'][[2, 3][1]];
+            </code></pre>
+            <div class="fragment fade-in">d</div>
+        </section>
+    </div>
+</div>
+
+
+<script src="bower_components/reveal-js/js/reveal.min.js"></script>
+
+<script type="application/javascript">
+    Reveal.initialize({
+
+        center: true,
+
+        width: 1200,
+        height: 800,
+
+        minScale: 1.0,
+        maxScale: 10.0,
+
+        rollingLinks: true,
+        transition: 'linear' // default/cube/page/concave/zoom/linear/fade/none
+    });
+</script>
+<script type="text/javascript" src="bower_components/reveal-js/plugin/highlight/highlight.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

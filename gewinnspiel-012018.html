@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PHPUGKA Sep. 2017 - Gewinnspiel</title>
+    <link rel="stylesheet" href="bower_components/reveal-js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal-js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <img src="images/phpugka.png" width="500" style="border: 0; box-shadow: none">
+            <h2>Gewinnspiel</h2>
+        </section>
+
+        <section>
+            <img src="images/jetbrains.png" width="400" height="400" style="border: 0; box-shadow: none">
+            <h2>Gutscheincode</h2>
+        </section>
+
+        <section>
+            <h2>Code-Beispiele als</h2>
+            <h2>PHP 7.2</h2>
+        </section>
+
+        <section>
+            <h3>Beispiel</h3>
+            <pre><code class="php">
+    &lt;?php
+    $parts = [];
+
+    preg_replace_callback_array([
+            '/I/' => function ($match) use (&$parts) {
+                $parts[] = 'We';
+            },
+            '/\<3/' => function ($match) use (&$parts) {
+                $parts[] = 'love';
+            },
+            '/PHP/' => function ($match) use (&$parts) {
+                $parts[] = $match[0];
+            }], 'I <3 PHP sometimes'
+    );
+
+    var_dump(implode(' ', $parts));
+            </code></pre>
+            <div class="fragment fade-in">We love PHP</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    $array = [
+        1,
+        2,
+        [3, 4],
+        [
+            [5, 6],
+        ],
+        7,
+    ];
+
+    var_dump(count($array, 1));
+            </code></pre>
+            <div class="fragment fade-in">10</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    var_dump(
+        (intdiv(100, 30) + 2 + print('')) * 10 + (10 <=> 11)
+    );
+            </code></pre>
+            <div class="fragment fade-in">59</div>
+        </section>
+
+    </div>
+</div>
+
+
+<script src="bower_components/reveal-js/js/reveal.min.js"></script>
+
+<script type="application/javascript">
+    Reveal.initialize({
+
+        center: true,
+
+        width: 1200,
+        height: 800,
+
+        minScale: 1.0,
+        maxScale: 10.0,
+
+        rollingLinks: true,
+        transition: 'linear' // default/cube/page/concave/zoom/linear/fade/none
+    });
+</script>
+<script type="text/javascript" src="bower_components/reveal-js/plugin/highlight/highlight.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
