@@ -16,83 +16,109 @@
         </section>
 
         <section>
-            <h3>PHP 7</h3>
+            <img src="images/phpdd18.svg" width="800" height="400" style="border: 0; box-shadow: none">
+            <h3>September 21st & 22nd 2018 in Dresden</h3>
+            <h2>Gutscheincode</h2>
+        </section>
+
+        <section>
+            <img src="images/jetbrains.png" width="400" height="400" style="border: 0; box-shadow: none">
+            <h2>Gutscheincode</h2>
+        </section>
+
+        <section>
+            <h2>Code-Beispiele als</h2>
+            <h2>PHP 7.2</h2>
+        </section>
+
+        <section>
+            <h3>Beispiel</h3>
             <pre><code class="php">
     &lt;?php
 
-    $obj = new class {
-        private function bar()
+    $notArray = null;
+
+    var_dump($notArray['key']);
+            </code></pre>
+            <div class="fragment fade-in">null</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    class MyIterator extends FilterIterator
+    {
+        public function accept()
         {
-            throw new Exception('method was called');
+            return false != $this->current();
         }
-    };
+    }
+
+    $iterator = new MyIterator(new ArrayIterator([30, null, '0', 2, 0, 8]));
+
+    $result = '';
+    foreach ($iterator as $value) {
+        $result .= $value;
+    }
+
+    var_dump($result);
+            </code></pre>
+            <div class="fragment fade-in">3028</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
 
     var_dump(
-        method_exists($obj, 'bar')
+        strtr(substr('Hello World', -5), ['l' => ''])
     );
             </code></pre>
-            <div class="fragment fade-in">true</div>
+            <div class="fragment fade-in">Word</div>
         </section>
 
         <section>
-            <h3>PHP</h3>
             <pre><code class="php">
     &lt;?php
 
-    echo print('23');
+    $array = ['13,5', '5.7', '22.8', 5.9, 6.0];
+
+    var_dump(
+        preg_grep('/\d\.\d/', $array)
+    );
             </code></pre>
-            <div class="fragment fade-in">231</div>
+            <div class="fragment fade-in">['5.7', '22.8', 5.9]</div>
         </section>
 
         <section>
-            <h3>PHP < 7.2</h3>
             <pre><code class="php">
     &lt;?php
 
-    echo count(null) . count(0) . count(new stdClass);
-            </code></pre>
-            <div class="fragment fade-in">011</div>
-        </section>
+    $array = ['k', 'a', '3', 'Ä', 'z'];
 
-        <section>
-            <h3>PHP 7</h3>
-            <pre><code class="php">
-    &lt;?php
+    sort($array);
 
-    $f = (function() {
-        foreach ([1,2,3] as $i) {
-            echo $i + yield;
-        }
-    })();
-
-    foreach ([2, 1, 2] as $i) {
-        $f->send($i);
+    foreach ($array as $element) {
+        echo $element;
     }
             </code></pre>
-            <div class="fragment fade-in">335</div>
+            <div class="fragment fade-in">3akzÄ</div>
         </section>
 
         <section>
-            <h3>PHP 5.6</h3>
             <pre><code class="php">
     &lt;?php
 
-    var_dump(
-        $i = 2 ?: null ? 3 : 1
-    );
+    $array = array_flip([1, 3, 4, 5, 1]);
+
+    foreach ($array as $element) {
+        echo $element;
+    }
             </code></pre>
-            <div class="fragment fade-in">3</div>
+            <div class="fragment fade-in">4123</div>
         </section>
 
-        <section>
-            <h3>PHP 7</h3>
-            <pre><code class="php">
-    &lt;?php
-
-    echo ['a', 'b', 'c', 'd'][[2, 3][1]];
-            </code></pre>
-            <div class="fragment fade-in">d</div>
-        </section>
     </div>
 </div>
 
