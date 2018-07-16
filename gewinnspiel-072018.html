@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PHPUGKA - Gewinnspiel</title>
+    <link rel="stylesheet" href="bower_components/reveal-js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal-js/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <img src="images/phpugka.png" width="500" style="border: 0; box-shadow: none">
+            <h2>Gewinnspiel</h2>
+        </section>
+
+        <section>
+            <img src="images/phpdd18.svg" width="800" height="400" style="border: 0; box-shadow: none">
+            <h3>September 21st & 22nd 2018 in Dresden</h3>
+            <h2>Gutscheincode</h2>
+        </section>
+
+        <section>
+            <img src="images/jetbrains.png" width="400" height="400" style="border: 0; box-shadow: none">
+            <h2>Gutscheincode</h2>
+        </section>
+
+        <section>
+            <h2>Code-Beispiele als</h2>
+            <h2>PHP 7.2</h2>
+        </section>
+
+        <section>
+            <h3>Beispiel</h3>
+            <pre><code class="php">
+    &lt;?php
+
+    $notArray = null;
+
+    var_dump($notArray['key']);
+            </code></pre>
+            <div class="fragment fade-in">null</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    class MyIterator extends FilterIterator
+    {
+        public function accept()
+        {
+            return false != $this->current();
+        }
+    }
+
+    $iterator = new MyIterator(new ArrayIterator([30, null, '0', 2, 0, 8]));
+
+    $result = '';
+    foreach ($iterator as $value) {
+        $result .= $value;
+    }
+
+    var_dump($result);
+            </code></pre>
+            <div class="fragment fade-in">3028</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    var_dump(
+        strtr(substr('Hello World', -5), ['l' => ''])
+    );
+            </code></pre>
+            <div class="fragment fade-in">Word</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    $array = ['13,5', '5.7', '22.8', 5.9, 6.0];
+
+    var_dump(
+        preg_grep('/\d\.\d/', $array)
+    );
+            </code></pre>
+            <div class="fragment fade-in">['5.7', '22.8', 5.9]</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    $array = ['k', 'a', '3', 'Ä', 'z'];
+
+    sort($array);
+
+    foreach ($array as $element) {
+        echo $element;
+    }
+            </code></pre>
+            <div class="fragment fade-in">3akzÄ</div>
+        </section>
+
+        <section>
+            <pre><code class="php">
+    &lt;?php
+
+    $array = array_flip([1, 3, 4, 5, 1]);
+
+    foreach ($array as $element) {
+        echo $element;
+    }
+            </code></pre>
+            <div class="fragment fade-in">4123</div>
+        </section>
+
+    </div>
+</div>
+
+
+<script src="bower_components/reveal-js/js/reveal.min.js"></script>
+
+<script type="application/javascript">
+    Reveal.initialize({
+
+        center: true,
+
+        width: 1200,
+        height: 800,
+
+        minScale: 1.0,
+        maxScale: 10.0,
+
+        rollingLinks: true,
+        transition: 'linear' // default/cube/page/concave/zoom/linear/fade/none
+    });
+</script>
+<script type="text/javascript" src="bower_components/reveal-js/plugin/highlight/highlight.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
